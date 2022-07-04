@@ -160,11 +160,11 @@ static int printf(const char *fmt, ...)
 	return i;
 }
 
-static char * argv_rc[] = { "/bin/sh", NULL };
-static char * envp_rc[] = { "HOME=/", NULL, NULL };
+static char * argv_rc[] = { "/usr/root/mysh", NULL };
+static char * envp_rc[] = { "HOME=/", "PATH=/usr/root", NULL };
 
-static char * argv[] = { "-/bin/sh",NULL };
-static char * envp[] = { "HOME=/usr/root", NULL, NULL };
+static char * argv[] = { "-/usr/root/mysh",NULL };
+static char * envp[] = { "HOME=/usr/root", "PATH=/usr/root", NULL };
 
 void init(void)
 {
@@ -181,7 +181,7 @@ void init(void)
 		close(0);
 		if (open("/etc/rc",O_RDONLY,0))
 			_exit(1);
-		execve("/bin/sh",argv_rc,envp_rc);
+		/* execve("/usr/root/mysh",argv_rc,envp_rc); */
 		_exit(2);
 	}
 	if (pid>0)
@@ -192,13 +192,14 @@ void init(void)
 			printf("Fork failed in init\r\n");
 			continue;
 		}
-		if (!pid) {
+		if (!pid) 
+		{
 			close(0);close(1);close(2);
 			setsid();
 			(void) open("/dev/tty0",O_RDWR,0);
 			(void) dup(0);
 			(void) dup(0);
-			_exit(execve("/bin/sh",argv,envp));
+			_exit(execve("/usr/root/mysh",argv,envp));
 		}
 		while (1)
 			if (pid == wait(&i))

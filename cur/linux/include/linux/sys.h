@@ -90,8 +90,8 @@ extern int sys_lstat();
 extern int sys_readlink();
 extern int sys_uselib();
 
-fn_ptr sys_call_table[] = {sys_uselib, sys_setup, sys_exit, sys_fork, sys_read,
-sys_write, sys_open, sys_close, sys_waitpid, sys_creat, sys_link,
+fn_ptr sys_call_table[] = { sys_uselib, sys_setup, sys_exit, sys_fork,
+sys_read, sys_write, sys_open, sys_close, sys_waitpid, sys_creat, sys_link,
 sys_unlink, sys_execve, sys_chdir, sys_time, sys_mknod, sys_chmod,
 sys_chown, sys_break, sys_stat, sys_lseek, sys_getpid, sys_mount,
 sys_umount, sys_setuid, sys_getuid, sys_stime, sys_ptrace, sys_alarm,

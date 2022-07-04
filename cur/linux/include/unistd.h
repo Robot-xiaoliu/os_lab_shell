@@ -59,7 +59,7 @@
 
 #define __NR_uselib	0
 #define __NR_setup	1	/* used only by init, to get system going */
-#define __NR_exit	2
+#define __NR_exit	2	
 #define __NR_fork	3
 #define __NR_read	4
 #define __NR_write	5
@@ -125,9 +125,9 @@
 #define __NR_getppid	65
 #define __NR_getpgrp	66
 #define __NR_setsid	67
-#define __NR_sigactio	68
+#define __NR_sigaction	68
 #define __NR_sgetmask	69
-#define __NR_ssetmask	70
+#define __NR_ssetmask	10
 #define __NR_setreuid	71
 #define __NR_setregid	72
 #define __NR_sigsuspend	73
